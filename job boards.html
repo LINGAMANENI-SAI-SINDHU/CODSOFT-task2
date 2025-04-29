@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorful Job Board</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #e0c2ff, #a8ffcf); /* Light purple to light green gradient */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        #job-search-form {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        #job-search-input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+            width: 70%;
+        }
+
+        #job-search-button {
+            padding: 10px 20px;
+            background: linear-gradient(to right, #ff6e7f, #bfe9ff); /* Pink to light blue button */
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+
+        #job-listings {
+            width: 80%;
+            max-width: 800px;
+        }
+
+        .job-listing {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .job-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #4a90e2; /* Blue title */
+            margin-bottom: 5px;
+        }
+
+        .job-company {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .job-location {
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        .job-description {
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .apply-button {
+            background: linear-gradient(to right, #84fab0, #8fd3f4); /* Light green to light blue apply button */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Job Board</h1>
+
+    <div id="job-search-form">
+        <input type="text" id="job-search-input" placeholder="Search jobs...">
+        <button id="job-search-button" onclick="searchJobs()">Search</button>
+    </div>
+
+    <div id="job-listings">
+
+        <div class="job-listing" data-job-title="Software Engineer" data-job-company="TechCorp" data-job-location="San Francisco">
+            <div class="job-title">Software Engineer</div>
+            <div class="job-company">TechCorp</div>
+            <div class="job-location">San Francisco, CA</div>
+            <div class="job-description">We are looking for a talented software engineer to join our team...</div>
+            <a href="apply.html" class="apply-button">Apply Now</a>
+        </div>
+
+        <div class="job-listing" data-job-title="Marketing Manager" data-job-company="Marketing Solutions" data-job-location="New York">
+            <div class="job-title">Marketing Manager</div>
+            <div class="job-company">Marketing Solutions</div>
+            <div class="job-location">New York, NY</div>
+            <div class="job-description">Manage and execute marketing campaigns to drive growth...</div>
+            <a href="apply.html" class="apply-button">Apply Now</a>
+        </div>
+    </div>
+</div>
+div id="login" class="container login-form">
+            <h2>Login</h2>
+            <form class="login-form-submit">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    
+        <div id="register" class="container register-form">
+            <h2>Register</h2>
+            <form class="register-form-submit">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+<footer>
+    <p>&copy; 2025 Job Board</p>
+</footer>
+
+    <script>
+        function searchJobs() {
+            const searchTerm = document.getElementById('job-search-input').value.toLowerCase();
+            const jobListings = document.querySelectorAll('.job-listing');
+
+            jobListings.forEach(listing => {
+                const title = listing.getAttribute('data-job-title').toLowerCase();
+                const company = listing.getAttribute('data-job-company').toLowerCase();
+                const location = listing.getAttribute('data-job-location').toLowerCase();
+
+                if (title.includes(searchTerm) || company.includes(searchTerm) || location.includes(searchTerm)) {
+                    listing.style.display = 'block';
+                } else {
+                    listing.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
